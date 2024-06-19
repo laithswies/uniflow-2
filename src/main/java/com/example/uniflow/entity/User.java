@@ -11,9 +11,6 @@ public class User {
     private Long Id;
 
 
-    @Column(name = "phone_Number", nullable = false)
-    private String phoneNumber;
-
     @Column(name = "user_name", nullable = false)
     private String userName;
 
@@ -36,15 +33,6 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public String getName() {
