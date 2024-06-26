@@ -36,14 +36,15 @@ public class LoginController {
             response.put("role", userOpt.get().getRole());
             return ResponseEntity.ok(response);
         } else {
+            Map<String, String> response = new HashMap<>();
             if (!userOpt.isPresent()) {
-                errorMessage = "username/email";
+                errorMessage = "Invalid username/email";
+                response.put("error", errorMessage);
             } else if (!userOpt.get().getPassword().equals(loginRequest.getPassword())) {
-                errorMessage = "password";
+                errorMessage = "Invalid Password";
+                response.put("error", errorMessage);
             }
-            return ResponseEntity.status(401).body(Collections.singletonMap("error", "Invalid " + errorMessage));
-        }
+            return ResponseEntity.status(401).body(response);        }
     }
 
 }
-
