@@ -23,13 +23,14 @@ public class VisitStatisticsController {
     }
 
     @GetMapping("/statistics")
-    public Map<LocalDate, Map<VehicleType, Long>> getStatisticsByDateRange(@RequestBody Map<String, String> request) {
-        String startDateStr = request.get("startDate");
-        String endDateStr = request.get("endDate");
-        LocalDate startDate = LocalDate.parse(startDateStr);
-        LocalDate endDate = LocalDate.parse(endDateStr);
-        return service.getStatisticsByDateRange(startDate, endDate);
+    public Map<LocalDate, Map<VehicleType, Long>> getStatisticsByDateRange(@RequestParam String startDate, @RequestParam String endDate) {
+        LocalDate start = LocalDate.parse(startDate);
+        LocalDate end = LocalDate.parse(endDate);
+        return service.getStatisticsByDateRange(start, end);
     }
+
+
+
 
 
 }
