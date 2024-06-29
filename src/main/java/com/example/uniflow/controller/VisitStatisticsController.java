@@ -28,9 +28,4 @@ public class VisitStatisticsController {
         LocalDate end = LocalDate.parse(endDate);
         return service.getStatisticsByDateRange(start, end);
     }
-
-
-
-
-
 }
