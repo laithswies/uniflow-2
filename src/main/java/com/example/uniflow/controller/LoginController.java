@@ -34,6 +34,8 @@ public class LoginController {
             Map<String, String> response = new HashMap<>();
             response.put("message", "Login successful");
             response.put("role", userOpt.get().getRole());
+            response.put("username", userOpt.get().getUserName());
+            response.put("name", userOpt.get().getName());
             return ResponseEntity.ok(response);
         } else {
             Map<String, String> response = new HashMap<>();
